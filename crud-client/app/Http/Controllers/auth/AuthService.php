@@ -23,14 +23,14 @@ class AuthService
         if (!$user) {
             throw new HttpResponseException(response()->json([
                 'success' => false,
-                'message' => 'El usuario no es válido',
+                'message' => 'El usuario es invalido',
             ], Response::HTTP_NOT_FOUND));
         }
 
         if (!Hash::check($dto->password, $user->password)) {
             throw new HttpResponseException(response()->json([
                 'success' => false,
-                'message' => 'Contraseña inválida',
+                'message' => 'Contraseña incorrecta',
             ], Response::HTTP_UNAUTHORIZED));
         }
 

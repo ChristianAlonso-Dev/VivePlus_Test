@@ -23,8 +23,8 @@ class UserController extends Controller
             return response()->json(['response' => false, 'message' => $dto->getFirstError()]);
         }
 
-        $result = $this->userService->createUser($dto);
-        return response()->json($result);
+        return $this->userService->createUser($dto);
+         
     }
 
     public function update(Request $request)
@@ -34,13 +34,12 @@ class UserController extends Controller
             return response()->json(['response' => false, 'message' => $dto->getFirstError()]);
         }
 
-        $result = $this->userService->updateUser($dto);
-        return response()->json($result);
+       return $this->userService->updateUser($dto);
+         
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $result = $this->userService->deleteUser($id);
-        return response()->json($result);
+       return $this->userService->deleteUser($request['id_user']);
     }
 }

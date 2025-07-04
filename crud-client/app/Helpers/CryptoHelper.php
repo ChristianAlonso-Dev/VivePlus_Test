@@ -9,7 +9,7 @@ class CryptoHelper
         $iv = env('AES_IV');
 
         if (empty($iv)) {
-            throw new \Exception("IV is not set. Check your .env configuration.");
+            throw new \Exception("Clave no configurada");
         }
 
         return openssl_encrypt($data, 'AES-256-CBC', $key, 0, $iv);
@@ -21,7 +21,7 @@ class CryptoHelper
         $iv = env('AES_IV');
 
         if (empty($iv)) {
-            throw new \Exception("IV is not set. Check your .env configuration.");
+            throw new \Exception("Clave no configurada");
         }
 
         return openssl_decrypt($data, 'AES-256-CBC', $key, 0, $iv);

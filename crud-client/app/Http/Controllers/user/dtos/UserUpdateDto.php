@@ -18,7 +18,7 @@ class UserUpdateDto extends UserCreateDto
     protected function validate(array $data): void
     {
         $validator = Validator::make($data, [
-            'id_user' => 'required|exists:users,id',
+            'id_user' => 'required',
             'user' => 'required',
             'name' => 'required',
             'phone' => 'required',

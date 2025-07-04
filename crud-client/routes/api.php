@@ -22,9 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/get_token', [AuthController::class, 'getToken']);
 
-Route::post('/create_user', [UserController::class, 'create']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/create_user', [UserController::class, 'create']);
     Route::put('/update_user', [UserController::class, 'update']);
-    Route::delete('/delete_user/{id}', [UserController::class, 'delete']);
+    Route::post('/delete_user', [UserController::class, 'delete']);
 });
